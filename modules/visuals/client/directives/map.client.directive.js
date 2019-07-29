@@ -20,7 +20,7 @@
           // catch the data and draw it on the map
           $scope.addDataToMap = function(data) {
             if (data) {
-              $scope.values = JSON.parse($scope.filtervalues);
+              $scope.values = $scope.filtervalues ? JSON.parse($scope.filtervalues) : { filter: function() {} };
               $scope.projectDataOnMap({ type: 'FeatureCollection', features: data });
               $scope.extractMapValues(data);
               $scope.buildLevels();
@@ -173,7 +173,8 @@
 
           $scope.get_value = function(data) {
             var vmdata = JSON.parse($scope.vmdata);
-            var value = $scope.values.filter(function(x) {return x.label === data.properties.tractce;})[0];
+            var filteredValue = $scope.values.filter(function(x) {return x.label === data.properties.tractce;});
+            var value = filteredValue && filteredValue.length ? filteredValue[0] : '';
             if (value && value.value && value.value > 5) {
               var plot_value = value.value;
               if (vmdata.chartFormat === 'count') {
