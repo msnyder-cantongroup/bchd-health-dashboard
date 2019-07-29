@@ -21,7 +21,7 @@ module.exports = {
   host: process.env.HOST || '0.0.0.0',
   // DOMAIN config should be set to the fully qualified application accessible
   // URL. For example: https://www.myapp.com (including port if required).
-  domain: process.env.DOMAIN,
+  domain: process.env.DOMAIN || 'localhost',
   // Session Cookie settings
   sessionCookie: {
     // session expiration is set by default to 24 hours
@@ -35,7 +35,7 @@ module.exports = {
     secure: false
   },
   // sessionSecret should be changed for security measures and concerns
-  sessionSecret: process.env.SESSION_SECRET,
+  sessionSecret: process.env.SESSION_SECRET = 'this is my secret',
   // sessionKey is the cookie session name
   sessionKey: 'sessionId',
   sessionCollection: 'sessions',
