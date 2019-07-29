@@ -16,4 +16,5 @@
 1. Run the following commands from the local project folder:
     - `npm i -g gulp-cli`
     - `yarn`
-    
+1. Run the website with the following command, and see the site at `http://localhost:3000`
+    - `npm start`
