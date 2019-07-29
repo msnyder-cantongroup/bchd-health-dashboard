@@ -10,4 +10,7 @@ echo "Loading data into mongo..."
 
 host=$MONGODB_HOST
 database=$MONGODB
-mongoimport -h $host -d $database -c causeofdeaths --type json --file causesOfDeath.json --drop
+
+echo $MONGODB_HOST
+
+"c:\Program Files\MongoDB\Server\4.0\bin\mongoimport.exe" -h $host -d $database -c causeofdeaths --type json --file causesOfDeath.json --drop -u bchd -p 'cits!@#'
