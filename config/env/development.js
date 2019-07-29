@@ -6,11 +6,14 @@ module.exports = {
   db: {
     uri: process.env.MONGODB_URI_DEV,
     options: {
-      user: 'bchd',
-      pass: 'cits!@#'
+      user: process.env.MONGODB_USERNAME,
+      pass: process.env.MONGODB_PASSWORD
     },
     // Enable mongoose debug mode
     debug: process.env.MONGODB_DEBUG || false
+  },
+  psDB: {
+    uri: process.env.PS_BCHD_URI || 'postgres://localhost:5432/bchd'
   },
   log: {
     // logging with Morgan - https://github.com/expressjs/morgan
